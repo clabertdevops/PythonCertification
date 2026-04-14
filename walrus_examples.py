@@ -1,3 +1,21 @@
+# name := expreaaion
+
+post_limit = 300
+post_string = "Blah" * 50
+
+# Standard
+diff = post_limit - len(post_string)
+if diff >= 0:
+    print("A fitting post")
+else:
+    print("Went over by", abs(diff))
+
+#walrus
+if(diff:=post_limit -len(post_string)) >= 0:
+    print("A fitting post")
+else:
+    print("Went over by", abs(diff))
+
 print(walrus := True)
 print(type(walrus))
 

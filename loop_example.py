@@ -1,4 +1,3 @@
-
 print(sum((x**2 for x in range(6) if x % 2 !=0 ), 20)) # aggiunge 10 alla somma
 
 # *args(tutti i parametri in ingresso)  **kwargs(chiave velore)
@@ -799,4 +798,16 @@ numpy
 https://towardsdatascience.com/a-super-fast-way-to-loop-in-python-6e58ba377a00#:~:text=A%20faster%20way%20to%20loop%20in%20Python%20is%20using%20built,inside%20the%20range%20of%20numbers.
 '''
 
+numbers = [1, 3, 5, 7, 10]
+position = 0
+while position < len(numbers):
+	number = numbers[position]
+	print(f'Number {number}, Position {position}', number)
+	if number % 2 == 0:
+		print('Found even number', number)
+		break
 
+	position +=1
+
+else:  # break not called
+	 print('No even number found')

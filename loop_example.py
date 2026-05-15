@@ -811,3 +811,40 @@ while position < len(numbers):
 
 else:  # break not called
 	 print('No even number found')
+
+
+from itertools import zip_longest
+a_zip = [1, 2, 3]
+b_zip = ['x', 'y', 'z', 'w', 'k']
+
+list(zip(a, b))
+# [(1, 'x'), (2, 'y'), (3, 'z')]    ← si ferma a 3
+
+list(zip_longest(a, b))
+# [(1, 'x'), (2, 'y'), (3, 'z'), (None, 'w'), (None, 'k')]
+
+list(zip_longest(a, b, fillvalue=0))
+# [(1, 'x'), (2, 'y'), (3, 'z'), (0, 'w'), (0, 'k')]
+
+'''
+def zip_longest(*iterables, fillvalue=None):
+    # Ottiene un iteratore per ciascun iterabile
+    iterators = [iter(it) for it in iterables]
+    num_active = len(iterators)
+    if not num_active:
+        return
+    while True:
+        values = []
+        for i, it in enumerate(iterators):
+            try:
+                value = next(it)
+            except StopIteration:
+                num_active -= 1
+                if not num_active:
+                    return          # tutti esauriti → fine
+                # Sostituisce l'iteratore esaurito con uno che produce fillvalue all'infinito
+                iterators[i] = repeat(fillvalue)
+                value = fillvalue
+            values.append(value)
+        yield tuple(values)
+'''

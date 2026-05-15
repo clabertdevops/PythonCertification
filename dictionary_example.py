@@ -1,17 +1,50 @@
 import copy
 import shelve
 
+a = {1: [1, 1], 2: [1], 3:[1]}
+b = {1: [1, 1], 2: [1], 3:[1]}
+
+print(a == b) # true
+
+#definizioni di Dizionari
+acme_customer = {'first': 'Wile', 'middle': 'E', 'last': 'Coyote'}
+acme_customer = dict(first="Wile", middle="E", last="Coyote")
+#acme_customer = dict(first="Wile", middle="E", last="Coyote", def="hunter") non è possibile usare parole speciali
+
 n = 5
 d_init_pythonic = {i: i** 2 for i in range(1, n)}
 
 print("Pythonic --> ", d_init_pythonic)
 # vs
-
 d_init_no = {}
 for i in range(1, n):
 	d_init_no[i] = i** 2
 
 print("NO Pythonic --> ", d_init_no)
+
+#-------------------------------------
+# metodi di unione dei dizzionari
+first = {'a': 1, 'b': 2}
+second = {'b': 'platypus'}
+first.update(second)
+print("Uninione -->", first)
+
+first = {'a': 'agony', 'b': 'bliss'}
+second = {'b': 'bagels', 'c': 'candy'}
+united = {**first, **second}
+print("Unione -->", united)
+
+third = {'d': 'donuts'}
+united = {**first, **second, **third}
+print("Unione -->", united)
+
+
+		 
+
+
+
+
+
 
 d_0 = dict([('a', 100), ['b',200]])
 print(d_0)

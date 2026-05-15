@@ -25,6 +25,14 @@ equivale
 @myfunction(x, y) 
 def foo():
     pass
+    
+from functools import wraps
+
+def outer():
+    @wraps(func)
+    def inner():
+        pass
+    return inner
 """
 #Esempio semplice
 def decorator(cls):

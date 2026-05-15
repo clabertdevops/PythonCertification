@@ -1,3 +1,17 @@
+from collections import Counter
+breakfast = ['spam', 'spam', 'eggs', 'spam']
+breakfast_counter = Counter(breakfast)
+print(breakfast_counter) # Counter({'spam': 3, 'eggs': 1})
+print(breakfast_counter.most_common(1)) # stampa [('spam', 3)]
+
+# la seconda lista sostituisce tutta la parte di slice che viene indicata
+numbers_aa = [0,6,8,10]
+numbers_aa[1:1] = [2,4]
+print(numbers_aa) # [0, 2, 4, 6, 8, 10]
+
+numbers_aa = [0,6,8,10]
+numbers_aa[1:4] = [2,4]
+print(numbers_aa) # [0, 2, 4]
 
 m = [[1,2,3], [4,5,6], [7,8,9]]
 col2 = [row[1] for row in m]
@@ -280,3 +294,43 @@ print("Range: ", _range)
 result = list(range(*slice(start, stop, step).indices(lenght)))
 print("Result :", result)
 
+a = [1, 2, 3, 4]
+b = a
+a[0] = 'surprise'
+print(a)
+print(b)
+
+a_origin = [1,2,3,4,5]
+a_0 = a_origin
+
+#Tutti questi metodi fanno una copia effetiva ma solo di oggetti immutabili 
+a_1 = a_origin.copy()
+a_2 = list(a_origin)
+a_3 = a_origin[:]
+
+a_origin[0] = 0
+
+print('a_0',a_0)
+print('a_1',a_1)
+print('a_2',a_2)
+print('a_3',a_3)
+
+english = 'Monday', 'Tuesday', 'Wednesday'
+french = 'Lundi', 'Mardi', 'Mercredi'
+
+list( zip(english, french)) # [('Monday', 'Lundi'), ('Tuesday', 'Mardi'), ('Wednesday', 'Mercredi')]
+dict( zip(english, french) ) # {'Monday': 'Lundi', 'Tuesday': 'Mardi', 'Wednesday': 'Mercredi'}
+
+small_birds = ['hummingbird', 'finch']
+extinct_birds = ['dodo', 'passenger pigeon', 'Norwegian Blue']
+carol_birds = [3, 'French hens', 2, 'turtledoves']
+all_birds = [small_birds, extinct_birds, 'macaw', carol_birds]
+
+print(all_birds) 
+'''
+[['hummingbird', 'finch'], ['dodo', 'passenger pigeon', 'Norwegian Blue'],
+'macaw', [3, 'French hens', 2, 'turtledoves']]
+'''
+print(all_birds[0]) # ['hummingbird', 'finch']
+print(all_birds[1]) # ['dodo', 'passenger pigeon', 'Norwegian Blue']
+print(all_birds[1][0]) # dodo

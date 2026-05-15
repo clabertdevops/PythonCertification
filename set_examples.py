@@ -3,7 +3,55 @@ https://realpython.com/python-sets/
 https://github.com/Pierian-Data/Complete-Python-3-Bootcamp/blob/master/17-Advanced%20Python%20Objects%20and%20Data%20Structures/03-Advanced%20Sets.ipynb
 '''
 
-# x = set(<iter>) 
+# x = set([iterable]) 
+
+evens = set([0, 2, 4, 6, 8])
+evens = set((0, 2, 4, 6, 8))
+
+#evens = set(0, 2, 4, 6, 8) Errore è come se fossero 5 argomenti
+
+
+# contiene o no dei valori
+drinks = {
+	'martini': {'vodka', 'vermouth'},
+	'black russian': {'vodka', 'kahlua'},
+	'white russian': {'cream', 'kahlua', 'vodka'},
+	'manhattan': {'rye', 'vermouth', 'bitters'},
+	'screwdriver': {'orange juice', 'vodka'}
+	}
+
+for name, contents in drinks.items():
+	if 'vodka' in contents and not ('vermouth' in contents or 'cream' in contents):
+		print(name)
+
+bruss = drinks['black russian']
+wruss = drinks['white russian']
+
+print(bruss & wruss) # intersection
+print(bruss.intersection(wruss)) # stesso risultato
+
+print(bruss | wruss) # unione
+print(bruss.union(wruss)) # stesso risultato
+
+# L'esclusiva o(elementi in un insieme o nell'altro, ma non in entrambi)
+print(bruss ^ wruss) # different
+print(bruss.symmetric_difference(wruss)) # inserisce tutti tranne l'intersezione
+
+print(bruss.intersection(wruss)) # inserisce solo l'intersezione
+
+a = {1, 2}
+b = {2, 3}
+c = {1, 2, 3, 4}
+print(a <= b) # --->> False
+print(a.issubset(b)) # stesso risultato
+print(a <= c) # --->> True
+
+#Per essere un sottoinsieme vero e proprio, 
+# il secondo insieme deve avere tutti i membri del primo e anche di più. Calcolalo usando 
+
+print(a < b) # --->> False
+print(a < a) # --->> False
+print(a < c) # --->> True (contiene gli elementi + n)
 
 x1 = {'foo', 'bar', 'baz'}
 x2 = {'baz', 'qux', 'quux'}

@@ -179,9 +179,15 @@ print(x_squared)
 x_squared_dict = {item: item * item for item in x}
 print(x_squared_dict)
 
-
 my_tuple = (1,2,3,4)
 print(id(my_tuple))
 
 my_tuple2 = (1,2,3)
 print(id(my_tuple2))
+
+number_list = [number for number in range(1,6)]
+cols = range(1,3)
+rows = range(1,4)
+
+cells =[(row, col) for row in rows for col in cols]
+print(cells)

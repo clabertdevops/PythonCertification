@@ -7,6 +7,8 @@ for targetN in iterableN if conditionN ]
 
 # [ expression for target in iterable ]
 
+# { expression for expression in iterable if condition }
+
 lines = [line.strip() for line in open("foo.txt") if line[0] == 'p']
 
 # è l'equvalente di
@@ -73,6 +75,8 @@ print(my_list_c4)
 
 print('-------------------------------------------------------------------')
 
+#{key_expression : value_expression for expression in iterable}
+
 my_dir_c0 = {i : sum(M[i]) for i in range(3)}
 print(my_dir_c0)
 
@@ -125,8 +129,6 @@ print(my_list_c5)
 
 # Nested
 print([(x, y) for x in range(5) if x % 2 == 0 for y in range(5) if y % 2 == 1])
-
-
 
 l6 = [[num for num in range(0, 3)] for iteraction in range(0, 3)]
 

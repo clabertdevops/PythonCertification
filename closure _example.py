@@ -1,3 +1,30 @@
+# funzioni interne che sfruttano le variabili passate dalla funzione principale
+def create_greeting(message):
+    # 'messaggio' è una variabile libera:
+    # non è locale a saluta() né globale
+    def greet(name):
+        return f'{message} {name}!'
+    return greet
+
+hello = create_greeting("Hello")
+goodbye = create_greeting("Goodbye")
+
+print(hello("Bob"))
+print(goodbye("Mary"))
+
+def cont_init(start): 
+    def increment(step):
+        return start + step
+    return increment
+
+f = cont_init(10)
+print(f.__closure__) # (<cell at 0x...: int object at 0x...>,)
+print(f.__closure__[0].cell_contents) # 10
+print(f.__code__.co_freevars) # ('start',)
+
+
+
+
 def outer_func():
     message = 'Func'
 

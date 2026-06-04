@@ -6,9 +6,10 @@ Python searchesuptofour scopes—the local (L) scope, then the local scopes of a
 If the name is not found during this search, Python reports an error.
 '''
 
-x_x = 11
+x_x = 11 
 def f1():
     print(x_x)
+    # x_x = 12 la variabile è visibile ma non è modificabile <<< 
 
 def g1():
     x_x = 22
@@ -85,7 +86,6 @@ def order():
     cook()  
 
 order()
-
 
 print("--------------------------------------------------------------------------------")
 def show_truth_string():

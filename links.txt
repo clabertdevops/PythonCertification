@@ -1,0 +1,12 @@
+itertools
+https://realpython.com/ref/stdlib/itertools/
+https://realpython.com/python-itertools/
+
+defaultdict
+https://realpython.com/python-defaultdict/
+
+python-exceptions
+https://realpython.com/python-built-in-exceptions/
+https://realpython.com/python-exceptions/
+
+https://realpython.com/python-variables/

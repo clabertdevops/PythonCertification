@@ -1,4 +1,21 @@
 
+import sys
+
+a_list = [1, 2, 3]
+
+print(sys.getrefcount(a_list))
+
+print(id(a_list))
+
+print(sys.getrefcount(a_list))
+
+import ctypes
+
+def ref_count(adderss: int):
+    return ctypes.c_long.from_address(adderss).value
+
+print(ref_count(id(a_list)))
+
 # http://www.andreaminini.com/python/passaggio-molti-parametri-funzione-python
 
 def func_1(c,d):

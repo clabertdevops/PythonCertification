@@ -11,7 +11,6 @@ garage_ford.cars.append("Focus")
 
 print(len(garage_ford))
 
-
 class Vehicle:
 
     vehicle_count = 0
@@ -82,7 +81,6 @@ print(c)
 a = MDYDate.today()
 print(a) 
 
-
 #fACTORY PATTERN
 from datetime import date
 class Person:
@@ -138,25 +136,54 @@ class Account:
         self._owner = value
 
 class Date:
-    _cache = { }
+    _cache = {}
 
-    @staticmethod
     def __new__(cls, year, month, day):
-        self = Date._cache.get((year,month,day))
+        key = (year, month, day)
+        self = cls._cache.get(key)
 
-        if not self:
+        if self is None:
             self = super().__new__(cls)
             self.year = year
             self.month = month
             self.day = day
-            Date._cache[year,month,day]
-
+            cls._cache[key] = self 
+            print(f'Creating instance {self}')
+        else:
+            print(f'Reusing instance {self}')
+            
+            
         return self
-    
-    def __init__(self, year, month, day):
-        pass
 
+    def __init__(self, year, month, day):
+        # Volutamente vuoto: gli attributi sono già impostati in __new__,
+        # non dobbiamo sovrascriverli se l'istanza viene dalla cache.
+        pass
+    
+    def __repr__(self):
+        return f'Date({self.year}, {self.month}, {self.day})'
+    
 # Example
 d = Date(2012, 12, 21)
 e = Date(2012, 12, 21)
-assert d is e              # Same object
+f = Date(2012, 12, 21)
+g = Date(2012, 12, 25)
+assert d is e   # Same object
+
+
+class A():
+    count = 0
+    def __init__(self) -> None:
+        A.count += 1
+    def exclaim(self):
+        print("I'm an A!")
+    
+    @classmethod
+    def kids(cls):
+        print("A has", cls.count, "little objects.")
+
+easy = A()
+weazzy_a = A()
+breazzy_a = A()
+
+A.kids()

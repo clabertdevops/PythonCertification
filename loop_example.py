@@ -1,3 +1,6 @@
+# https://realpython.com/python-itertools/
+
+
 print(sum((x**2 for x in range(6) if x % 2 !=0 ), 20)) # aggiunge 10 alla somma
 
 # *args(tutti i parametri in ingresso)  **kwargs(chiave velore)
@@ -814,6 +817,7 @@ else:  # break not called
 
 
 from itertools import zip_longest
+
 a_zip = [1, 2, 3]
 b_zip = ['x', 'y', 'z', 'w', 'k']
 
